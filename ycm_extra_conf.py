@@ -91,6 +91,7 @@ flags = [
 '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
 
 '-isystem', '/usr/lib/gcc/i686-pc-linux-gnu/4.8.3/include/g++-v4' # For gentoo only
+'-isystem', '/usr/include/c++/4.8.3', # For centos7
 ]
 
 

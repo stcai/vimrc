@@ -16,11 +16,14 @@ if v:version > 700
     Plugin 'gmarik/Vundle.vim'
 
     Plugin 'tomasr/molokai'
+    "Plugin 'altercation/vim-colors-solarized'
     Plugin 'vim-scripts/a.vim'
     Plugin 'jlanzarotta/bufexplorer'
     Plugin 'scrooloose/nerdtree'
     Plugin 'vim-scripts/taglist.vim'
-    Plugin 'Valloric/YouCompleteMe'
+    if v:version >= 704
+        Plugin 'Valloric/YouCompleteMe'
+    endif
     Plugin 'fatih/vim-go'
 
     call vundle#end()
@@ -41,12 +44,9 @@ if v:version > 700
     set t_Co=256
     set cursorline
     set cursorcolumn
-    colorscheme molokai
-
-    ""For colorscheme molokai
-    let g:rehash256 = 1
 
     ""For syntax highlighting
+    syntax on
     syntax enable
 
     ""For history
@@ -123,6 +123,16 @@ if v:version > 700
     noremap <silent> <Leader>cn :cnext<CR>
     noremap <silent> <Leader>cp :cprevious<CR>
 
+    ""For molokai
+    let g:rehash256 = 1
+    colorscheme molokai
+
+    ""For solarized
+    "set background=dark
+    "colorscheme solarized
+    "set background=light
+    "colorscheme solarized
+    
     ""For A
     noremap <silent> <Leader>a :AV<CR>
 
