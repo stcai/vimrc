@@ -46,7 +46,7 @@ if v:version > 700
     set cursorcolumn
 
     ""For syntax highlighting
-    syntax on
+    "syntax on
     syntax enable
 
     ""For history
@@ -81,10 +81,10 @@ if v:version > 700
     set pastetoggle=<F9>
 
     ""Easy quit command
-    noremap <silent> <Leader>q :q<CR>  " Quit current window
-    noremap <silent> <Leader>Q :q<CR>:q<CR>   " Quit all windows
+    noremap <silent> <Leader>q :q<CR>           " Quit current window
+    noremap <silent> <Leader>Q :q<CR>:q<CR>     " Quit 2 windows(for vimdiff)
     ""Easy save command
-    noremap <silent> <Leader>w :w<CR>
+    noremap <silent> <Leader>ww :w<CR>
     noremap <silent> <Leader>W :wa<CR>
     ""Easy switch left-most and right-most window
     noremap <silent> <Leader>h 999999<c-w><c-h>
@@ -144,14 +144,14 @@ if v:version > 700
                 \ '\.o$', '\.a$', '\.so$', '\.d$',
                 \ '\.pyc',
                 \]
-    noremap <silent> <Leader>v :NERDTreeToggle<CR>
+    noremap <silent> <Leader>T :NERDTreeToggle<CR>
 
     ""For taglist
     let Tlist_Show_One_File=1
     let Tlist_Exit_OnlyWindow=1
     let Tlist_Use_Right_Window = 1
     let Tlist_WinWidth = 50
-    noremap <silent> <Leader>t :TlistToggle<CR>
+    noremap <silent> <Leader>L :TlistToggle<CR>
 
     ""For vim-go
     au FileType go nmap <leader>r <Plug>(go-run)
@@ -160,7 +160,7 @@ if v:version > 700
     au FileType go nmap <leader>c <Plug>(go-coverage)
 
     ""For ycm
-    let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
+    let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
     let g:ycm_complete_in_comments=1
     nnoremap <silent> <Leader>d :YcmCompleter GoToDeclaration<CR>
     nnoremap <silent> <Leader>e :YcmCompleter GoToDefinition<CR>
