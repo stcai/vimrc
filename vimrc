@@ -1,7 +1,7 @@
 " Felix's vimrc
 " Coding: C/C++(mainly), Python, Go, Shell, Lua, etc.
 
-if v:version > 700
+if v:version >= 704
 
     "------------------------------------------------------------------------
     set nocompatible              " be iMproved, required
@@ -21,10 +21,9 @@ if v:version > 700
     Plugin 'jlanzarotta/bufexplorer'
     Plugin 'scrooloose/nerdtree'
     Plugin 'vim-scripts/taglist.vim'
-    if v:version >= 704
-        Plugin 'Valloric/YouCompleteMe'
-    endif
+    Plugin 'Valloric/YouCompleteMe'
     Plugin 'fatih/vim-go'
+    Plugin 'rking/ag.vim'
 
     call vundle#end()
     filetype plugin indent on	" required
@@ -64,9 +63,7 @@ if v:version > 700
     set tw=79   " width of document (used by gd)
     set nowrap  " don't automatically wrap on load
     set fo-=t   " don't automatically wrap text when typing
-    if v:version > 703
-        set colorcolumn=80
-    endif
+    set colorcolumn=80
     highlight ColorColumn ctermbg=233
 
     ""Rebind <Leader> key
@@ -84,7 +81,7 @@ if v:version > 700
     noremap <silent> <Leader>q :q<CR>  " Quit current window
     noremap <silent> <Leader>Q :q<CR>:q<CR>   " Quit all windows
     ""Easy save command
-    noremap <silent> <Leader>w :w<CR>
+    noremap <silent> <Leader>ww :w<CR>
     noremap <silent> <Leader>W :wa<CR>
     ""Easy switch left-most and right-most window
     noremap <silent> <Leader>h 999999<c-w><c-h>
@@ -104,6 +101,7 @@ if v:version > 700
     nnoremap <C-j> <C-w>j
     nnoremap <C-k> <C-w>k
     nnoremap <C-l> <C-w>l
+
     ""Make 'Y' behave like other capitals
     nnoremap Y y$
     ""Reselect visual block after indent/outdent
@@ -122,6 +120,9 @@ if v:version > 700
     noremap <silent> <Leader>cc :cclose<CR>
     noremap <silent> <Leader>cn :cnext<CR>
     noremap <silent> <Leader>cp :cprevious<CR>
+
+    noremap <silent> <Leader>v :vsp<CR>
+    noremap <silent> <Leader>V :sp<CR>
 
     ""For molokai
     let g:rehash256 = 1
@@ -144,14 +145,17 @@ if v:version > 700
                 \ '\.o$', '\.a$', '\.so$', '\.d$',
                 \ '\.pyc',
                 \]
-    noremap <silent> <Leader>v :NERDTreeToggle<CR>
+    noremap <silent> <Leader>T :NERDTreeToggle<CR>
 
     ""For taglist
     let Tlist_Show_One_File=1
     let Tlist_Exit_OnlyWindow=1
     let Tlist_Use_Right_Window = 1
     let Tlist_WinWidth = 50
-    noremap <silent> <Leader>t :TlistToggle<CR>
+    ""If both emacs ctags and Exuberant Ctags were installed, 
+    ""use Exuberant Ctags.
+    let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+    noremap <silent> <Leader>L :TlistToggle<CR>
 
     ""For vim-go
     au FileType go nmap <leader>r <Plug>(go-run)
@@ -170,7 +174,7 @@ if v:version > 700
     let g:ycm_add_preview_to_completeopt=1
     let g:ycm_autoclose_preview_window_after_insertion=1
 
-endif " if version > 700
+endif " if version >= 704
 
 ""For python
 au FileType python setlocal shiftwidth=4 tabstop=4 expandtab smartindent 
