@@ -45,7 +45,7 @@ if v:version >= 704
     set cursorcolumn
 
     ""For syntax highlighting
-    syntax on
+    "syntax on
     syntax enable
 
     ""For history
@@ -78,8 +78,8 @@ if v:version >= 704
     set pastetoggle=<F9>
 
     ""Easy quit command
-    noremap <silent> <Leader>q :q<CR>  " Quit current window
-    noremap <silent> <Leader>Q :q<CR>:q<CR>   " Quit all windows
+    noremap <silent> <Leader>q :q<CR>           " Quit current window
+    noremap <silent> <Leader>Q :q<CR>:q<CR>     " Quit 2 windows(for vimdiff)
     ""Easy save command
     noremap <silent> <Leader>ww :w<CR>
     noremap <silent> <Leader>W :wa<CR>
@@ -164,7 +164,7 @@ if v:version >= 704
     au FileType go nmap <leader>c <Plug>(go-coverage)
 
     ""For ycm
-    let g:ycm_global_ycm_extra_conf = '~/.vim/ycm_extra_conf.py'
+    let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
     let g:ycm_complete_in_comments=1
     nnoremap <silent> <Leader>d :YcmCompleter GoToDeclaration<CR>
     nnoremap <silent> <Leader>e :YcmCompleter GoToDefinition<CR>
